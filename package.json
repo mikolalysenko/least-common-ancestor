@@ -1,0 +1,38 @@
+{
+  "name": "least-common-ancestor",
+  "version": "0.0.0",
+  "description": "O(1) least common ancestor queries for JSON trees",
+  "main": "lca.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "bit-twiddle": "~0.0.2",
+    "dup": "~0.0.0",
+    "weakmap": "~0.0.6"
+  },
+  "devDependencies": {
+    "tape": "^2.12.0"
+  },
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mikolalysenko/least-common-ancestor.git"
+  },
+  "keywords": [
+    "least",
+    "common",
+    "ancestor",
+    "tree",
+    "json",
+    "object"
+  ],
+  "author": "Mikola Lysenko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mikolalysenko/least-common-ancestor/issues"
+  },
+  "homepage": "https://github.com/mikolalysenko/least-common-ancestor"
+}
