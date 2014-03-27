@@ -43,7 +43,6 @@ tape("least-common-ancestor", function(t) {
   }
 
   verifyTree({
-    
     bar: { name: "bar" },
     baz: {
       name: "baz",
