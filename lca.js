@@ -53,7 +53,7 @@ function preprocessTree(root) {
       var keys = Object.keys(node)
       for(var i=0; i<keys.length; ++i) {
         var child = node[keys[i]]
-        if(typeof child === "object") {
+        if((typeof child === "object") && (child !== null)) {
           visit(child, depth+1)
           depths.push(depth)
           nodes.push(node)

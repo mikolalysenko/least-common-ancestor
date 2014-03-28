@@ -12,7 +12,7 @@ tape("least-common-ancestor", function(t) {
       nodes.push(parents.slice())
       Object.keys(node).forEach(function(id) {
         var child = node[id]
-        if(typeof child === "object") {
+        if((typeof child === "object") && child !== null) {
           visit(child, parents)
         }
       })
@@ -68,6 +68,8 @@ tape("least-common-ancestor", function(t) {
   })
 
   verifyTree([[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]])
+
+  verifyTree({ x: null })
 
   t.end()
 })
