@@ -1,6 +1,6 @@
 {
   "name": "least-common-ancestor",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "O(1) least common ancestor queries for JSON trees",
   "main": "lca.js",
   "directories": {
