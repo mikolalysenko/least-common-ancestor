@@ -51,10 +51,16 @@ npm install least-common-ancestor
 
 # API
 
-### `var lca = require("least-common-ancestor")(root)`
+### `var lca = require("least-common-ancestor")(root[,filter(node,child)])`
 Preprocesses a tree to answer least common ancestor queries
 
 * `root` is the root of a JSON object tree
+* `filter(node,child)` is an optional function, which if passed determines which subtrees the augmentation is applied to.  The interpretation of these arguments is:
+
+    + `node` is the subtree node
+    + `child` is a string representing the child property of node
+
+    `filter` should return a truthy value if `node[child]` should be augmented, or a falsey value if it should be skipped.
 
 **Returns** A function, `lca`, which computes the least common ancestor of any two nodes of the tree.
 
