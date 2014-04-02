@@ -35,7 +35,7 @@ function buildIntervals(depths, nodes) {
   return result
 }
 
-function preprocessTree(root, filter) {
+function preprocessTree(root, childrenOf) {
   var depths, intervals, nodes, lcaData
 
   function rebuildDataStructure() {
@@ -50,16 +50,25 @@ function preprocessTree(root, filter) {
       lcaData.set(node, depths.length)
       depths.push(depth)
       nodes.push(node)
-      var keys = Object.keys(node)
-      for(var i=0; i<keys.length; ++i) {
-        var child = node[keys[i]]
-        if((typeof child === "object") && (child !== null)) {
-          if(filter && !filter(node, keys[i])) {
-            continue
+      if(childrenOf) {
+        var children = childrenOf(node)
+        for(var i=0; i<children.length; ++i) {
+          var child = children[i]
+          if((typeof child === "object") && (child !== null)) {
+            visit(child, depth+1)
+            depths.push(depth)
+            nodes.push(node)
           }
-          visit(child, depth+1)
-          depths.push(depth)
-          nodes.push(node)
+        }
+      } else {
+        var keys = Object.keys(node)
+        for(var i=0; i<keys.length; ++i) {
+          var child = node[keys[i]]
+          if((typeof child === "object") && (child !== null)) {
+            visit(child, depth+1)
+            depths.push(depth)
+            nodes.push(node)
+          }
         }
       }
     }

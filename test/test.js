@@ -35,11 +35,18 @@ tape("least-common-ancestor", function(t) {
     }
   }
 
+  function defaultChildrenOf(node) {
+    return Object.keys(node).map(function(id) {
+      return node[id]
+    })
+  }
+
   function verifyTree(root) {
     var lca = preprocessTree(root)
     verifyQuery(root, lca)
     lca.rebuild()
     verifyQuery(root, lca)
+    verifyQuery(root, preprocessTree(root, defaultChildrenOf))
   }
 
   verifyTree({
